@@ -9,7 +9,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.stereotype.Component;
 
 @SpringBootApplication
-@EnableConfigurationProperties({ApplicationProperties.class})
+@EnableConfigurationProperties({ApplicationProperties.class, ApplicationPropertiesRecord.class})
 public class ConfigurationDemoApplication {
 
 	public static void main(String[] args) {
@@ -25,11 +25,14 @@ public class ConfigurationDemoApplication {
 		@Autowired
 		private ApplicationProperties applicationProperties;
 
+		@Autowired
+		private ApplicationPropertiesRecord applicationPropertiesRecord;
+
 		@Override
 		public void run(String... args) throws Exception {
 			System.out.println("Value annotation example : " + appVerion);
-			System.out.println("Configuration properties example : " + applicationProperties.getVersion());
-			System.out.println(applicationProperties);
+			System.out.println("Configuration properties : " + applicationProperties);
+			System.out.println("Record properties  : " + applicationPropertiesRecord);
 		}
 	}
 
