@@ -15,7 +15,7 @@ public class DemoController {
 
     @GetMapping("/hello")
     public Map<String, String> hello(@RequestParam(defaultValue = "World") String name) {
-        logger.info("Name : {}", name);
+        logger.debug("Name : {}", name);
         return Map.of("greeting", " Hello " + name);
     }
 }
